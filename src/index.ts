@@ -7,13 +7,13 @@ const port = 9000
 
 app.use(bodyParser.json())
 
-app.get('/', (_req, res) => res.send('Hello World!'))
+app.get('/', (_req, res) => res.send('<h1>tinyhouse-v1-server</h1>'))
 
 app.get('/listings', (_req, res) => res.send(listings) )
 
-app.post('delete-listing', (req, res) => {
+app.post('/delete-listing', (req, res) => {
     const id: string = req.body.id
-    for (let i = 0; i<listings.length; i++) {
+    for (let i = 0; i < listings.length; i++) {
         if (listings[i].id === id) {
             return res.send(listings.splice(i, 1))
         }
